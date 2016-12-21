@@ -8,6 +8,7 @@ namespace Factoring.Web.Funcionalidades.ListarEmpresa
 {
     public class ListarEmpresaViewModel
     {
+        [Required]
         public int NuEmpresa { get; set; }
 
         [Required]
@@ -39,5 +40,7 @@ namespace Factoring.Web.Funcionalidades.ListarEmpresa
         [Required]
         [StringLength(50)]
         public string CoUser { get; set; }
+
+              
     }
 }

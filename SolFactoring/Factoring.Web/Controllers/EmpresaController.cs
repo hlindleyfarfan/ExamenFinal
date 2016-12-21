@@ -14,12 +14,23 @@ namespace Factoring.Web.Controllers
         {
             using (var listar = new ListarEmpresaHandler())
             {
-
+                filtroCoUser = "HL";
                 return View(new FiltrarEmpresaViewModel()
                 {
-                    FiltroCoUser = string.Empty,
+                    FiltroCoUser = string.Empty,                    
                     Empresas = listar.Ejecutar(filtroCoUser)
                 });
+            }
+        }
+
+        public PartialViewResult VerEmpresas(string filtroCoUser)
+        {
+            using (var listar = new ListarEmpresaHandler())
+            {
+
+                return PartialView("_EmpresasEncontradas",
+                        listar.Ejecutar(filtroCoUser)
+                    );
             }
         }
     }

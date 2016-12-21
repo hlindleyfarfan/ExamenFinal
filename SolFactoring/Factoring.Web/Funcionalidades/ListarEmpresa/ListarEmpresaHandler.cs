@@ -35,6 +35,7 @@ namespace Factoring.Web.Funcionalidades.ListarEmpresa
             return consulta.Select(e =>
                          new ListarEmpresaViewModel()
                          {
+                             NuEmpresa=e.NuEmpresa,
                              NuRuc = e.NuRuc,
                              TxRazonSocial = e.TxRazonSocial,
                              TxDireccion = e.TxDireccion,

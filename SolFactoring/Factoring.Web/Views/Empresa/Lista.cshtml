@@ -1,0 +1,33 @@
+﻿@model Factoring.Web.Funcionalidades.ListarEmpresa.FiltrarEmpresaViewModel
+
+<h2>Lista de Empresas</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+@using (Ajax.BeginForm("VerEmpresas", "Empresa",
+                                                    new AjaxOptions
+                                                    {
+                                                        HttpMethod = "Get",
+                                                        InsertionMode = InsertionMode.Replace,
+                                                        UpdateTargetId = "ResultadoFiltro",
+
+                                                    },
+                                                    new
+                                                    {
+                                                        id = "FiltrarEmpresa",
+                                                        @class = "form-inline"
+                                                    }
+                                                    ))
+{ }
+<div id="ResultadoFiltro">
+  
+    @Html.Partial("_EmpresasEncontradas", Model.Empresas)
+    
+</div>
+
+
+
+@section Scripts{
+    @Scripts.Render("~/bundles/unobtrusiveajax")
+}

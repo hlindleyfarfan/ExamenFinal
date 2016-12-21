@@ -1,0 +1,76 @@
+﻿@model IEnumerable<Factoring.Web.Funcionalidades.ListarEmpresa.ListarEmpresaViewModel>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.NuEmpresa)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NuRuc)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TxRazonSocial)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TxDireccion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NoDepartamento)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NoProvincia)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NoDistrito)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TxRubro)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CoUser)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.NuEmpresa)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NuRuc)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TxRazonSocial)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TxDireccion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NoDepartamento)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NoProvincia)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NoDistrito)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TxRubro)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CoUser)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+}
+
+</table>
+@section Scripts{
+    @Scripts.Render("~/bundles/unobtrusiveajax")
+}
