@@ -136,6 +136,8 @@
     <Compile Include="Funcionalidades\ListarEmpresa\ListarEmpresaHandler.cs" />
     <Compile Include="Funcionalidades\ListarEmpresa\ListarEmpresaViewModel.cs" />
     <Compile Include="Funcionalidades\ListarEmpresa\VerEmpresaHandler.cs" />
+    <Compile Include="Funcionalidades\RegistrarEmpresa\RegistrarEmpresaHandler.cs" />
+    <Compile Include="Funcionalidades\RegistrarEmpresa\RegistrarEmpresaViewModel.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -179,6 +181,7 @@
     <Content Include="Views\Empresa\Lista.cshtml" />
     <Content Include="Views\Empresa\Editar.cshtml" />
     <Content Include="Views\Empresa\_EmpresasEncontradas.cshtml" />
+    <Content Include="Views\Empresa\Registrar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

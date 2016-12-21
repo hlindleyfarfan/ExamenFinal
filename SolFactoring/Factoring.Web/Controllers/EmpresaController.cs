@@ -1,5 +1,6 @@
 ﻿using Factoring.Web.Funcionalidades.EditarEmpresa;
 using Factoring.Web.Funcionalidades.ListarEmpresa;
+using Factoring.Web.Funcionalidades.RegistrarEmpresa;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -54,6 +55,7 @@ namespace Factoring.Web.Controllers
                 try
                 {
                     editar.Ejecutar(model);
+
                     return RedirectToAction("Lista", new { filtroCoUser = model.CoUser });
 
                 }
@@ -68,6 +70,37 @@ namespace Factoring.Web.Controllers
 
         }
 
+
+        [HttpGet]
+        public ActionResult Registrar()
+        {
+            return View(new RegistrarEmpresaViewModel());
+        }
+
+        [HttpPost]
+        public ActionResult Registrar(RegistrarEmpresaViewModel model)
+        {
+            if (!ModelState.IsValid) return View(model);
+
+            using (var registrar = new RegistrarEmpresaHandler())
+            {
+                try
+                {
+                    registrar.Ejecutar(model);
+
+                    return RedirectToAction("Lista", new { filtroCoUser = model.CoUser });
+
+                }
+                catch (Exception ex)
+                {
+                    ModelState.AddModelError("", ex.Message);
+                    return View(model);
+                }
+
+            }
+
+
+        }
 
     }
 }
