@@ -1,9 +1,10 @@
-namespace Factoring.Modelo
+namespace Factoring.Repositorio
 {
     using System;
     using System.Data.Entity;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Linq;
+    using Modelo;
 
     public partial class FactoringContext : DbContext
     {
