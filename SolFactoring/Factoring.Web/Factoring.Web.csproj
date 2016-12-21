@@ -130,9 +130,12 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\EmpresaController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Funcionalidades\EditarEmpresa\EditarEmpresaHandler.cs" />
+    <Compile Include="Funcionalidades\EditarEmpresa\EditarEmpresaViewModel.cs" />
     <Compile Include="Funcionalidades\ListarEmpresa\FiltrarEmpresaViewModel.cs" />
     <Compile Include="Funcionalidades\ListarEmpresa\ListarEmpresaHandler.cs" />
     <Compile Include="Funcionalidades\ListarEmpresa\ListarEmpresaViewModel.cs" />
+    <Compile Include="Funcionalidades\ListarEmpresa\VerEmpresaHandler.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -174,6 +177,7 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Empresa\Lista.cshtml" />
+    <Content Include="Views\Empresa\Editar.cshtml" />
     <Content Include="Views\Empresa\_EmpresasEncontradas.cshtml" />
   </ItemGroup>
   <ItemGroup>

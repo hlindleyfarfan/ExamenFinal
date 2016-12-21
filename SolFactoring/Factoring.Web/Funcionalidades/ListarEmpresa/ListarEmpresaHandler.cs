@@ -43,7 +43,9 @@ namespace Factoring.Web.Funcionalidades.ListarEmpresa
                              NoProvincia = e.NoProvincia,
                              NoDistrito=e.NoDistrito,
                              TxRubro=e.TxRubro,
-                             CoUser=e.CoUser
+                             CoUser=e.CoUser,
+                             CoUserModif = e.CoUserModif,
+                             FeModif = e.FeModif
                          }
                      ).ToList();
         }

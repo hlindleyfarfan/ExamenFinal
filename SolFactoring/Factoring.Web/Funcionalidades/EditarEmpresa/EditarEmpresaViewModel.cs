@@ -4,10 +4,11 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
-namespace Factoring.Web.Funcionalidades.ListarEmpresa
+namespace Factoring.Web.Funcionalidades.EditarEmpresa
 {
-    public class ListarEmpresaViewModel
+    public class EditarEmpresaViewModel
     {
+        
         public int NuEmpresa { get; set; }
 
         [Display(Name = "RUC")]
@@ -38,6 +39,5 @@ namespace Factoring.Web.Funcionalidades.ListarEmpresa
 
         public DateTime FeModif { get; set; }
 
-        public IEnumerable<ListarEmpresaViewModel> Empresas { get; set; }
     }
 }

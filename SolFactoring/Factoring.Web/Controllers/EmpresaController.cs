@@ -1,4 +1,5 @@
-﻿using Factoring.Web.Funcionalidades.ListarEmpresa;
+﻿using Factoring.Web.Funcionalidades.EditarEmpresa;
+using Factoring.Web.Funcionalidades.ListarEmpresa;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -33,5 +34,40 @@ namespace Factoring.Web.Controllers
                     );
             }
         }
+
+        [HttpGet]
+        public PartialViewResult Editar(int NuEmpresa)
+        {
+            using (var buscar = new VerEmpresaHandler())
+            {
+                return PartialView("Editar", buscar.Execute(NuEmpresa));
+            }
+        }
+
+        [HttpPost]
+        public ActionResult Editar(EditarEmpresaViewModel model)
+        {
+            if (!ModelState.IsValid) return View(model);
+
+            using (var editar = new EditarEmpresaHandler())
+            {
+                try
+                {
+                    editar.Ejecutar(model);
+                    return RedirectToAction("Lista", new { filtroCoUser = model.CoUser });
+
+                }
+                catch (Exception ex)
+                {
+                    ModelState.AddModelError("", ex.Message);
+                    return View(model);
+                }
+
+            }
+
+
+        }
+
+
     }
 }
