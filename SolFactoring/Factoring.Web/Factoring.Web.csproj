@@ -132,6 +132,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Funcionalidades\EditarEmpresa\EditarEmpresaHandler.cs" />
     <Compile Include="Funcionalidades\EditarEmpresa\EditarEmpresaViewModel.cs" />
+    <Compile Include="Funcionalidades\EditarEmpresa\EliminarEmpresaHandler.cs" />
     <Compile Include="Funcionalidades\ListarEmpresa\FiltrarEmpresaViewModel.cs" />
     <Compile Include="Funcionalidades\ListarEmpresa\ListarEmpresaHandler.cs" />
     <Compile Include="Funcionalidades\ListarEmpresa\ListarEmpresaViewModel.cs" />
@@ -185,6 +186,7 @@
     <Content Include="Views\Empresa\_EmpresasEncontradas.cshtml" />
     <Content Include="Views\Empresa\Registrar.cshtml" />
     <Content Include="Views\Empresa\_ListaFacturasxEmpresa.cshtml" />
+    <Content Include="Views\Empresa\Eliminar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

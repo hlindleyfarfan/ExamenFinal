@@ -38,6 +38,9 @@ namespace Factoring.Repositorio
 
         public void Eliminar(TEntidad entidad)
         {
+            //bd.Set<TEntidad>().Remove(entidad);
+            if (bd.Entry<TEntidad>(entidad).State == System.Data.Entity.EntityState.Detached)
+                bd.Set<TEntidad>().Attach(entidad);
             bd.Set<TEntidad>().Remove(entidad);
         }
 

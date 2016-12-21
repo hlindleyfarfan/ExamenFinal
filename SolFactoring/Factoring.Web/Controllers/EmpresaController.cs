@@ -122,5 +122,37 @@ namespace Factoring.Web.Controllers
             return RedirectToAction("Lista", new {filtroCoUser = "HL" });
 
         }
+
+        [HttpGet]
+        public PartialViewResult Eliminar(int NuEmpresa)
+        {
+            using (var buscar = new VerEmpresaHandler())
+            {
+                return PartialView("Eliminar", buscar.Execute(NuEmpresa));
+            }
+        }
+        [HttpPost]
+        public ActionResult Eliminar(EditarEmpresaViewModel model)
+        {
+            if (!ModelState.IsValid) return View(model);
+
+            using (var eliminar = new EliminarEmpresaHandler())
+            {
+                try
+                {
+                    eliminar.Ejecutar(model);
+                    return RedirectToAction("Lista", new { filtroCoUser = model.CoUser });
+
+                }
+                catch (Exception ex)
+                {
+                    ModelState.AddModelError("", ex.Message);
+                    return View(model);
+                }
+
+            }
+
+
+        }
     }
 }
