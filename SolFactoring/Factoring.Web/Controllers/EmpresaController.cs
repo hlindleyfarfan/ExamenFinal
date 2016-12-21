@@ -14,7 +14,7 @@ namespace Factoring.Web.Controllers
         {
             using (var listar = new ListarEmpresaHandler())
             {
-                filtroCoUser = "HL";
+                //filtroCoUser = "HL";
                 return View(new FiltrarEmpresaViewModel()
                 {
                     FiltroCoUser = string.Empty,                    
