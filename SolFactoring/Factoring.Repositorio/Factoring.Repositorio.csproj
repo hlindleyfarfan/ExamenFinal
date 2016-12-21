@@ -53,6 +53,7 @@
   <ItemGroup>
     <Compile Include="FactoringContext.cs" />
     <Compile Include="Impl\EmpresaRepositorio.cs" />
+    <Compile Include="Impl\FacturaRepositorio.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RepositorioGenerico.cs" />
   </ItemGroup>

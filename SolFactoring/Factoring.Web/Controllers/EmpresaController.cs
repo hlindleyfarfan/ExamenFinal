@@ -1,5 +1,6 @@
 ﻿using Factoring.Web.Funcionalidades.EditarEmpresa;
 using Factoring.Web.Funcionalidades.ListarEmpresa;
+using Factoring.Web.Funcionalidades.ListarFactura;
 using Factoring.Web.Funcionalidades.RegistrarEmpresa;
 using System;
 using System.Collections.Generic;
@@ -102,5 +103,24 @@ namespace Factoring.Web.Controllers
 
         }
 
+        [HttpGet]
+        public PartialViewResult ListarDetalle(int filtroNuEmpresa)
+        {
+            using (var listar = new ListarFacturaHandler())
+            {
+
+                return PartialView("_ListaFacturasxEmpresa",
+                        listar.Ejecutar(filtroNuEmpresa)
+                    );
+            }
+        }
+
+        [HttpPost]
+        public ActionResult ListarDetalle()
+        {
+
+            return RedirectToAction("Lista", new {filtroCoUser = "HL" });
+
+        }
     }
 }
