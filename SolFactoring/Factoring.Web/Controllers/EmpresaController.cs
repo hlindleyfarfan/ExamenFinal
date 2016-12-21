@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Factoring.Web.Funcionalidades.ListarEmpresa;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -9,9 +10,17 @@ namespace Factoring.Web.Controllers
     public class EmpresaController : Controller
     {
         // GET: Empresa
-        public ActionResult Index()
+        public ActionResult Lista(string filtroCoUser)
         {
-            return View();
+            using (var listar = new ListarEmpresaHandler())
+            {
+
+                return View(new FiltrarEmpresaViewModel()
+                {
+                    FiltroCoUser = string.Empty,
+                    Empresas = listar.Ejecutar(filtroCoUser)
+                });
+            }
         }
     }
 }

@@ -44,6 +44,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
       <Private>True</Private>
@@ -122,6 +130,9 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\EmpresaController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Funcionalidades\ListarEmpresa\FiltrarEmpresaViewModel.cs" />
+    <Compile Include="Funcionalidades\ListarEmpresa\ListarEmpresaHandler.cs" />
+    <Compile Include="Funcionalidades\ListarEmpresa\ListarEmpresaViewModel.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -180,6 +191,10 @@
     <ProjectReference Include="..\Factoring.Modelo\Factoring.Modelo.csproj">
       <Project>{6ebdbf86-06f1-4e6f-885a-de8771280a69}</Project>
       <Name>Factoring.Modelo</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Factoring.Repositorio\Factoring.Repositorio.csproj">
+      <Project>{7498a04c-d480-4eed-9148-2329534b863b}</Project>
+      <Name>Factoring.Repositorio</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
