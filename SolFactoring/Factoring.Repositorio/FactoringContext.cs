@@ -13,25 +13,12 @@ namespace Factoring.Repositorio
         {
         }
 
-        public virtual DbSet<Departamento> Departamento { get; set; }
-        public virtual DbSet<Distrito> Distrito { get; set; }
         public virtual DbSet<Empresa> Empresa { get; set; }
         public virtual DbSet<Factura> Factura { get; set; }
         public virtual DbSet<ImagenFactura> ImagenFactura { get; set; }
-        public virtual DbSet<Provincia> Provincia { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Departamento>()
-                .HasMany(e => e.Provincia)
-                .WithRequired(e => e.Departamento)
-                .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<Distrito>()
-                .HasMany(e => e.Empresa)
-                .WithRequired(e => e.Distrito)
-                .WillCascadeOnDelete(false);
-
             modelBuilder.Entity<Empresa>()
                 .Property(e => e.NuRuc)
                 .IsFixedLength()
@@ -63,11 +50,6 @@ namespace Factoring.Repositorio
             modelBuilder.Entity<Factura>()
                 .HasOptional(e => e.ImagenFactura)
                 .WithRequired(e => e.Factura);
-
-            modelBuilder.Entity<Provincia>()
-                .HasMany(e => e.Distrito)
-                .WithRequired(e => e.Provincia)
-                .WillCascadeOnDelete(false);
         }
     }
 }

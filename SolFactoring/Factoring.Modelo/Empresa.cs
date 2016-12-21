@@ -29,7 +29,17 @@ namespace Factoring.Modelo
         [StringLength(200)]
         public string TxDireccion { get; set; }
 
-        public int CoDistrito { get; set; }
+        [Required]
+        [StringLength(150)]
+        public string NoDepartamento { get; set; }
+
+        [Required]
+        [StringLength(150)]
+        public string NoProvincia { get; set; }
+
+        [Required]
+        [StringLength(150)]
+        public string NoDistrito { get; set; }
 
         [StringLength(200)]
         public string TxRubro { get; set; }
@@ -43,8 +53,6 @@ namespace Factoring.Modelo
         public string CoUserModif { get; set; }
 
         public DateTime FeModif { get; set; }
-
-        public virtual Distrito Distrito { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Factura> Factura { get; set; }
