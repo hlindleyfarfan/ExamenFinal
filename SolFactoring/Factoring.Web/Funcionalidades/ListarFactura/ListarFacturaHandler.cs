@@ -24,7 +24,7 @@ namespace Factoring.Web.Funcionalidades.ListarFactura
 
         public IEnumerable<ListarFacturaViewModel> Ejecutar(int filtroNuEmpresa)
         {
-            var consulta = repositorio.Empresas.TrerTodos();
+            var consulta = repositorio.Facturas.TrerTodos();
 
 
             consulta = consulta

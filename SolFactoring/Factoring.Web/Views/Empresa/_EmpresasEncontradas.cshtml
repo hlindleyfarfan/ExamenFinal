@@ -3,9 +3,9 @@
 <div class="container">
     <table class="table">
         <tr>
-            <th>
+            @*<th>
                 @Html.DisplayNameFor(model => model.NuEmpresa)
-            </th>
+            </th>*@
             <th>
                 @Html.DisplayNameFor(model => model.NuRuc)
             </th>
@@ -30,22 +30,23 @@
             <th>
                 @Html.DisplayNameFor(model => model.CoUser)
             </th>
-            <th>
+            @*<th>
                 @Html.DisplayNameFor(model => model.CoUserModif)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.FeModif)
-            </th>
+            </th>*@
             <th></th>
         </tr>
 
         @foreach (var item in Model)
         {
             <tr>
-                <td>
+                @*<td>                   
                     @Html.DisplayFor(modelItem => item.NuEmpresa)
-                </td>
+                </td>*@
                 <td>
+                    @Html.HiddenFor(modelItem => item.NuEmpresa)
                     @Html.DisplayFor(modelItem => item.NuRuc)
                 </td>
                 <td>
@@ -68,13 +69,15 @@
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.CoUser)
+                    @Html.HiddenFor(modelItem => item.CoUserModif)
+                    @Html.HiddenFor(modelItem => item.FeModif)
                 </td>
-                <td>
+                @*<td>                    
                     @Html.DisplayFor(modelItem => item.CoUserModif)
                 </td>
-                <td>
+                <td>                    
                     @Html.DisplayFor(modelItem => item.FeModif)
-                </td>
+                </td>*@
                 <td>
                     <div class="btn-group">
                         <button class="btn dropdown-toggle btn-xs"
@@ -142,9 +145,28 @@
                    }
                    )
                             </li>
+
+                            <li>
+                                @Ajax.ActionLink(" ", "RegistrarFactura", "Empresa"
+                   , new { NuEmpresa = item.NuEmpresa }
+                   , new AjaxOptions
+                   {
+                       HttpMethod = "Get",
+                       InsertionMode = InsertionMode.Replace,
+                       UpdateTargetId = "ResultadoEmpresas"
+                   }
+                   ,
+                   new
+                   {
+                       @class = "glyphicon glyphicon-plus-sign",
+                       data_toggle = "modal",
+                       data_target = "#RegistrarFacturasxEmpresaForm"
+                   }
+                   )
+                            </li>
                         </ul>
                     </div>
-                    |
+                    
                 </td>
             </tr>
         }
@@ -167,6 +189,13 @@
      aria-hidden="true">
 </div>
 <div id="ListaFacturasxEmpresaForm"
+     class="modal fade"
+     tabindex="-1"
+     role="dialog"
+     aria-labelledby="EditarPersonalabel"
+     aria-hidden="true">
+</div>
+<div id="RegistrarFacturasxEmpresaForm"
      class="modal fade"
      tabindex="-1"
      role="dialog"

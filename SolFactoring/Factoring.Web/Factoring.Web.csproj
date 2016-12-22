@@ -139,8 +139,11 @@
     <Compile Include="Funcionalidades\ListarEmpresa\VerEmpresaHandler.cs" />
     <Compile Include="Funcionalidades\ListarFactura\ListarFacturaHandler.cs" />
     <Compile Include="Funcionalidades\ListarFactura\ListarFacturaViewModel.cs" />
+    <Compile Include="Funcionalidades\ListarFactura\VerFacturaHandler.cs" />
     <Compile Include="Funcionalidades\RegistrarEmpresa\RegistrarEmpresaHandler.cs" />
     <Compile Include="Funcionalidades\RegistrarEmpresa\RegistrarEmpresaViewModel.cs" />
+    <Compile Include="Funcionalidades\RegistrarFactura\RegistrarFacturaHandler.cs" />
+    <Compile Include="Funcionalidades\RegistrarFactura\RegistrarFacturaViewModel.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -187,6 +190,7 @@
     <Content Include="Views\Empresa\Registrar.cshtml" />
     <Content Include="Views\Empresa\_ListaFacturasxEmpresa.cshtml" />
     <Content Include="Views\Empresa\Eliminar.cshtml" />
+    <Content Include="Views\Empresa\_RegistrarFacturaxEmpresa.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -20,7 +20,7 @@ namespace Factoring.Repositorio.Impl
             _facturas = new RepositorioGenerico<Factura>(bd);
         }
 
-        public RepositorioGenerico<Factura> Empresas { get { return _facturas; } }
+        public RepositorioGenerico<Factura> Facturas { get { return _facturas; } }
 
         public void Commit()
         {

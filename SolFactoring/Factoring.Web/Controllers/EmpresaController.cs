@@ -2,6 +2,7 @@
 using Factoring.Web.Funcionalidades.ListarEmpresa;
 using Factoring.Web.Funcionalidades.ListarFactura;
 using Factoring.Web.Funcionalidades.RegistrarEmpresa;
+using Factoring.Web.Funcionalidades.RegistrarFactura;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -142,6 +143,42 @@ namespace Factoring.Web.Controllers
                 {
                     eliminar.Ejecutar(model);
                     return RedirectToAction("Lista", new { filtroCoUser = model.CoUser });
+
+                }
+                catch (Exception ex)
+                {
+                    ModelState.AddModelError("", ex.Message);
+                    return View(model);
+                }
+
+            }
+
+
+        }
+
+
+
+        [HttpGet]
+        public PartialViewResult RegistrarFactura(int NuEmpresa)
+        {
+            using (var buscar = new VerFacturaHandler())
+            {
+                return PartialView("_RegistrarFacturaxEmpresa", buscar.Execute(NuEmpresa));
+            }
+        }
+
+        [HttpPost]
+        public ActionResult RegistrarFactura(RegistrarFacturaViewModel model)
+        {
+            if (!ModelState.IsValid) return View(model);
+
+            using (var registrar = new RegistrarFacturaHandler())
+            {
+                try
+                {
+                    registrar.Ejecutar(model);
+
+                    return RedirectToAction("Lista", new { filtroCoUser = "HL" });
 
                 }
                 catch (Exception ex)
