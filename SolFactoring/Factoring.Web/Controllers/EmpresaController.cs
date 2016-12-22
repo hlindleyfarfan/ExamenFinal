@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Microsoft.AspNet.Identity;
 
 namespace Factoring.Web.Controllers
 {
@@ -121,7 +122,7 @@ namespace Factoring.Web.Controllers
         public ActionResult ListarDetalle()
         {
 
-            return RedirectToAction("Lista", new {filtroCoUser = "HL" });
+            return RedirectToAction("Lista", new {filtroCoUser = User.MostrarNombre() });
 
         }
 
@@ -176,7 +177,7 @@ namespace Factoring.Web.Controllers
                 {
                     registrar.Ejecutar(model);
 
-                    return RedirectToAction("Lista", new { filtroCoUser = "HL" });
+                    return RedirectToAction("Lista", new { filtroCoUser = User.MostrarNombre() });
 
                 }
                 catch (Exception ex)
@@ -212,7 +213,7 @@ namespace Factoring.Web.Controllers
 
                     //return RedirectToAction("_ListaFacturasxEmpresa", new { filtroNuEmpresa = model.NuEmpresa });
                     //return ListarDetalle(model.NuEmpresa);
-                    return RedirectToAction("Lista", new { filtroCoUser = "HL" });
+                    return RedirectToAction("Lista", new { filtroCoUser = User.MostrarNombre() });
 
                 }
                 catch (Exception ex)
@@ -244,7 +245,7 @@ namespace Factoring.Web.Controllers
                 try
                 {
                     eliminar.Ejecutar(model);
-                    return RedirectToAction("Lista", new { filtroCoUser = "HL" });
+                    return RedirectToAction("Lista", new { filtroCoUser = User.MostrarNombre() });
 
                 }
                 catch (Exception ex)
