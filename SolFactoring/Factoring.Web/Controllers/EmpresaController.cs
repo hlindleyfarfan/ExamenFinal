@@ -167,7 +167,8 @@ namespace Factoring.Web.Controllers
         [HttpPost]
         public ActionResult RegistrarFactura(RegistrarFacturaViewModel model)
         {
-            if (!ModelState.IsValid) return View(model);
+            if (!ModelState.IsValid) //return View(model);
+                return RegistrarFactura(model.NuEmpresa);
 
             using (var registrar = new RegistrarFacturaHandler())
             {

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FluentValidation.Attributes;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -6,8 +7,10 @@ using System.Web;
 
 namespace Factoring.Web.Funcionalidades.RegistrarFactura
 {
+    [Validator(typeof(RegistrarFacturaViewModelValidator))]
     public class RegistrarFacturaViewModel
     {
+        [Display(Name = "Id")]
         public int IdFactura { get; set; }
 
         [Display(Name = "Número")]
@@ -22,10 +25,12 @@ namespace Factoring.Web.Funcionalidades.RegistrarFactura
         [Display(Name = "Fec. Cobro")]
         public DateTime FeCobro { get; set; }
 
+        [Display(Name = "Id Empresa")]
         public int NuEmpresa { get; set; }
 
-        [Required]
-        [StringLength(11)]
+        //[Required]
+        //[StringLength(11)]
+        [Display(Name = "RUC")]
         public string NuRuc { get; set; }
 
         [Display(Name = "Raz. Social")]
@@ -37,10 +42,11 @@ namespace Factoring.Web.Funcionalidades.RegistrarFactura
         [Display(Name = "IGV")]
         public decimal SsTotImpuestos { get; set; }
 
-        [Required]
-        [StringLength(50)]
+        //[Required]
+        //[StringLength(50)]
+        [Display(Name = "Usuario Modif.")]
         public string CoUserModif { get; set; }
-
+        [Display(Name = "Fec. Modif.")]
         public DateTime FeModif { get; set; }
     }
 }

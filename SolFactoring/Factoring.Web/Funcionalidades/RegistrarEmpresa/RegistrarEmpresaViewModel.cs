@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FluentValidation.Attributes;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -6,8 +7,10 @@ using System.Web;
 
 namespace Factoring.Web.Funcionalidades.RegistrarEmpresa
 {
+    [Validator(typeof(RegistrarEmpresaViewModelValidator))]
     public class RegistrarEmpresaViewModel
     {
+        [Display(Name = "Id")]
         public int NuEmpresa { get; set; }
 
         [Display(Name = "RUC")]
@@ -34,8 +37,10 @@ namespace Factoring.Web.Funcionalidades.RegistrarEmpresa
         [Display(Name = "Usuario")]
         public string CoUser { get; set; }
 
+        [Display(Name = "Usuario Modif.")]
         public string CoUserModif { get; set; }
 
+        [Display(Name = "Fec. Modif.")]
         public DateTime FeModif { get; set; }
     }
 }

@@ -4,8 +4,7 @@ namespace Factoring.Modelo
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
-    using System.Data.Entity.Spatial;
-
+   
     [Table("Empresa")]
     public partial class Empresa
     {
@@ -18,38 +17,38 @@ namespace Factoring.Modelo
         [Key]
         public int NuEmpresa { get; set; }
 
-        [Required]
-        [StringLength(11)]
+        //[Required]
+        //[StringLength(11)]
         public string NuRuc { get; set; }
 
-        [Required]
-        [StringLength(150)]
+        //[Required]
+        //[StringLength(150)]
         public string TxRazonSocial { get; set; }
 
-        [StringLength(200)]
+        //[StringLength(200)]
         public string TxDireccion { get; set; }
 
-        [Required]
-        [StringLength(150)]
+        //[Required]
+        //[StringLength(150)]
         public string NoDepartamento { get; set; }
 
-        [Required]
-        [StringLength(150)]
+        //[Required]
+        //[StringLength(150)]
         public string NoProvincia { get; set; }
 
-        [Required]
-        [StringLength(150)]
+        //[Required]
+        //[StringLength(150)]
         public string NoDistrito { get; set; }
 
-        [StringLength(200)]
+        //[StringLength(200)]
         public string TxRubro { get; set; }
 
-        [Required]
-        [StringLength(50)]
+        //[Required]
+        //[StringLength(50)]
         public string CoUser { get; set; }
 
-        [Required]
-        [StringLength(50)]
+        //[Required]
+        //[StringLength(50)]
         public string CoUserModif { get; set; }
 
         public DateTime FeModif { get; set; }
