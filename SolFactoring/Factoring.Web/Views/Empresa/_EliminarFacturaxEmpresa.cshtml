@@ -2,14 +2,14 @@
 
 <div id="EditarEmpresa">
 
-    @using (Html.BeginForm("EditarFactura", "Empresa", FormMethod.Post,
-                                                                                        new
-                                                                                        {
-                                                                                            id = "FacturaEditForm",
-                                                                                            @class = "form-horizontal",
-                                                                                            role = "form"
-                                                                                        }
-                                                                                        ))
+    @using (Html.BeginForm("EliminarFactura", "Empresa", FormMethod.Post,
+                                                                                                new
+                                                                                                {
+                                                                                                    id = "FacturaDeleteForm",
+                                                                                                    @class = "form-horizontal",
+                                                                                                    role = "form"
+                                                                                                }
+                                                                                                ))
     {
         @Html.AntiForgeryToken()
 
@@ -22,7 +22,7 @@
                             aria-hidden="true">
                         &times;
                     </button>
-                    <h4>Edición de Factura</h4>
+                    <h4>Eliminación de Factura</h4>
                 </div>
                 <div class="modal-body">
                     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
@@ -125,7 +125,8 @@
                 </div>
                 <div class="modal-footer">
                     <div class="col-md-offset-2 col-md-10">
-                        <input type="submit" value="Grabar" class="btn btn-default" />
+                        ¿Está Ud. seguro de eliminar?
+                        <input type="submit" value="Sí" class="btn btn-default" />
                     </div>
                 </div>
             </div>

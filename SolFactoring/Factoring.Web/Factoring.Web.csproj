@@ -135,6 +135,7 @@
     <Compile Include="Funcionalidades\EditarEmpresa\EliminarEmpresaHandler.cs" />
     <Compile Include="Funcionalidades\EditarFactura\EditarFacturaHandler.cs" />
     <Compile Include="Funcionalidades\EditarFactura\EditarFacturaViewModel.cs" />
+    <Compile Include="Funcionalidades\EditarFactura\EliminarFacturaHandler.cs" />
     <Compile Include="Funcionalidades\ListarEmpresa\FiltrarEmpresaViewModel.cs" />
     <Compile Include="Funcionalidades\ListarEmpresa\ListarEmpresaHandler.cs" />
     <Compile Include="Funcionalidades\ListarEmpresa\ListarEmpresaViewModel.cs" />
@@ -194,6 +195,7 @@
     <Content Include="Views\Empresa\Eliminar.cshtml" />
     <Content Include="Views\Empresa\_RegistrarFacturaxEmpresa.cshtml" />
     <Content Include="Views\Empresa\_EditarFacturaxEmpresa.cshtml" />
+    <Content Include="Views\Empresa\_EliminarFacturaxEmpresa.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

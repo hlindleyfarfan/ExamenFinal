@@ -153,11 +153,7 @@ namespace Factoring.Web.Controllers
                 }
 
             }
-
-
         }
-
-
 
         [HttpGet]
         public PartialViewResult RegistrarFactura(int NuEmpresa)
@@ -229,6 +225,37 @@ namespace Factoring.Web.Controllers
 
         }
 
+        [HttpGet]
+        public PartialViewResult EliminarFactura(int IdFactura)
+        {
+            using (var buscar = new VerFacturaHandler())
+            {
+                return PartialView("_EliminarFacturaxEmpresa", buscar.ExecuteEdicion(IdFactura));
+            }
+        }
+        [HttpPost]
+        public ActionResult EliminarFactura(EditarFacturaViewModel model)
+        {
+            if (!ModelState.IsValid) return View(model);
+
+            using (var eliminar = new EliminarFacturaHandler())
+            {
+                try
+                {
+                    eliminar.Ejecutar(model);
+                    return RedirectToAction("Lista", new { filtroCoUser = "HL" });
+
+                }
+                catch (Exception ex)
+                {
+                    ModelState.AddModelError("", ex.Message);
+                    return View(model);
+                }
+
+            }
+
+
+        }
 
     }
 }
