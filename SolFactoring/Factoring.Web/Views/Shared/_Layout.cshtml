@@ -1,9 +1,10 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My Examen Final VS 2015 Web Developer Application</title>
+    <title>@ViewBag.Title - Examen Final VS 2015 Web Developer Application</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
@@ -25,7 +26,14 @@
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
                     @*<li>@Html.ActionLink("Empresas", "Lista", "Empresa")</li>*@
                     <li>@Html.ActionLink("Empresas", "Lista", "Empresa", new { filtroCoUser = "HL" }, new { @class = "navbar-brand" })</li>
+                   
+                    @if (Request.IsAuthenticated && User.IsInRole("Admin"))
+                    {
+                        <li>@Html.ActionLink("RolesAdmin", "Index", "RolesAdmin")</li>
+                        <li>@Html.ActionLink("UsersAdmin", "Index", "UsersAdmin")</li>
+                    }
                 </ul>
+                @Html.Partial("_LoginPartial")
             </div>
         </div>
     </div>
