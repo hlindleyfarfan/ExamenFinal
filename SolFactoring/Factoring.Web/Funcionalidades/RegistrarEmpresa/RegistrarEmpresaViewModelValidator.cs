@@ -37,6 +37,10 @@ namespace Factoring.Web.Funcionalidades.RegistrarEmpresa
                 .Must(ValidaNoDuplicados)
                 .WithMessage("Ya existe el RUC ingresado.");
 
+            RuleFor(Modelo => Modelo.NuRuc)
+                .Must(ValidaModulo11)
+                .WithMessage("RUC invalidado por Módulo 11.");
+
             RuleFor(Modelo => Modelo.TxRazonSocial)
                 .NotEmpty()
                 ;
@@ -51,6 +55,56 @@ namespace Factoring.Web.Funcionalidades.RegistrarEmpresa
         {
             ListarEmpresaHandler obj = new ListarEmpresaHandler();
             return obj.NoExisteRUC(vstrNuRUC);
+        }
+
+        public bool ValidaModulo11(string vstrNuRuc)
+        {
+            if (!string.IsNullOrEmpty(vstrNuRuc))
+            {
+                int addition = 0;
+                int[] hash = { 5, 4, 3, 2, 7, 6, 5, 4, 3, 2 };
+                int vstrNuRucLength = vstrNuRuc.Length;
+
+                string identificationComponent = vstrNuRuc.Substring(0, vstrNuRucLength - 1);
+
+                int identificationComponentLength = identificationComponent.Length;
+
+                int diff = hash.Length - identificationComponentLength;
+
+                for (int i = identificationComponentLength - 1; i >= 0; i--)
+                {
+                    addition += (identificationComponent[i] - '0') * hash[i + diff];
+                }
+
+                addition = 11 - (addition % 11);
+
+                if (addition == 11)
+                {
+                    addition = 0;
+                }
+
+                char last = char.ToUpperInvariant(vstrNuRuc[vstrNuRucLength - 1]);
+
+                if (vstrNuRucLength == 11)
+                {
+                    // The identification document corresponds to a RUC.
+                    return addition.Equals(last - '0');
+                }
+                else if (char.IsDigit(last))
+                {
+                    // The identification document corresponds to a DNI with a number as verification digit.
+                    char[] hashNumbers = { '6', '7', '8', '9', '0', '1', '1', '2', '3', '4', '5' };
+                    return last.Equals(hashNumbers[addition]);
+                }
+                else if (char.IsLetter(last))
+                {
+                    // The identification document corresponds to a DNI with a letter as verification digit.
+                    char[] hashLetters = { 'K', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J' };
+                    return last.Equals(hashLetters[addition]);
+                }
+            }
+
+            return false;
         }
     }
 }
