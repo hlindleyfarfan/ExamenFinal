@@ -129,15 +129,16 @@ namespace Factoring.Web.Controllers
         [HttpGet]
         public PartialViewResult Eliminar(int NuEmpresa)
         {
-            using (var buscar = new VerEmpresaHandler())
+            using (var buscar = new VerEmpresaEliminarHandler())
             {
                 return PartialView("Eliminar", buscar.Execute(NuEmpresa));
             }
         }
         [HttpPost]
-        public ActionResult Eliminar(EditarEmpresaViewModel model)
+        public ActionResult Eliminar(EliminarEmpresaViewModel model)
         {
             if (!ModelState.IsValid) return View(model);
+
 
             using (var eliminar = new EliminarEmpresaHandler())
             {

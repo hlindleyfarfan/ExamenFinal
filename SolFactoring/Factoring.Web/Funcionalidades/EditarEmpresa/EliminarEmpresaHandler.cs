@@ -16,13 +16,13 @@ namespace Factoring.Web.Funcionalidades.EditarEmpresa
             repositorio = new EmpresaRepositorio(new FactoringContext());
         }
 
-        public void Ejecutar(EditarEmpresaViewModel modelo)
+        public void Ejecutar(EliminarEmpresaViewModel modelo)
         {
             Empresa empresa = CreaEmpresa(modelo);
             repositorio.Empresas.Eliminar(empresa);
             repositorio.Commit();
         }
-        private Empresa CreaEmpresa(EditarEmpresaViewModel modelo)
+        private Empresa CreaEmpresa(EliminarEmpresaViewModel modelo)
         {
             return new Empresa()
             {

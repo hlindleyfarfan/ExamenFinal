@@ -186,12 +186,15 @@
     <Compile Include="Funcionalidades\EditarEmpresa\EditarEmpresaHandler.cs" />
     <Compile Include="Funcionalidades\EditarEmpresa\EditarEmpresaViewModel.cs" />
     <Compile Include="Funcionalidades\EditarEmpresa\EliminarEmpresaHandler.cs" />
+    <Compile Include="Funcionalidades\EditarEmpresa\EliminarEmpresaViewModel.cs" />
+    <Compile Include="Funcionalidades\EditarEmpresa\EliminarEmpresaViewModelValidator.cs" />
     <Compile Include="Funcionalidades\EditarFactura\EditarFacturaHandler.cs" />
     <Compile Include="Funcionalidades\EditarFactura\EditarFacturaViewModel.cs" />
     <Compile Include="Funcionalidades\EditarFactura\EliminarFacturaHandler.cs" />
     <Compile Include="Funcionalidades\ListarEmpresa\FiltrarEmpresaViewModel.cs" />
     <Compile Include="Funcionalidades\ListarEmpresa\ListarEmpresaHandler.cs" />
     <Compile Include="Funcionalidades\ListarEmpresa\ListarEmpresaViewModel.cs" />
+    <Compile Include="Funcionalidades\ListarEmpresa\VerEmpresaEliminarHandler.cs" />
     <Compile Include="Funcionalidades\ListarEmpresa\VerEmpresaHandler.cs" />
     <Compile Include="Funcionalidades\ListarFactura\ListarFacturaHandler.cs" />
     <Compile Include="Funcionalidades\ListarFactura\ListarFacturaViewModel.cs" />
