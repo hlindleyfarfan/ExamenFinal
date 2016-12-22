@@ -35,7 +35,7 @@ namespace Factoring.Web.Funcionalidades.ListarFactura
             return consulta.Select(e =>
                          new ListarFacturaViewModel()
                          {
-                             //IdFactura=e.IdFactura,
+                             IdFactura=e.IdFactura,
                              NuFactura=e.NuFactura,
                              FeEmision=e.FeEmision,
                              //FeVencimiento=e.FeVencimiento,

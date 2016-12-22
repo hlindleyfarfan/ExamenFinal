@@ -4,9 +4,9 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
-namespace Factoring.Web.Funcionalidades.RegistrarFactura
+namespace Factoring.Web.Funcionalidades.EditarFactura
 {
-    public class RegistrarFacturaViewModel
+    public class EditarFacturaViewModel
     {
         public int IdFactura { get; set; }
 
@@ -18,6 +18,7 @@ namespace Factoring.Web.Funcionalidades.RegistrarFactura
 
         [Display(Name = "Fec. Vencim.")]
         public DateTime FeVencimiento { get; set; }
+
 
         [Display(Name = "Fec. Cobro")]
         public DateTime FeCobro { get; set; }

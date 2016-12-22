@@ -1,4 +1,5 @@
 ﻿using Factoring.Web.Funcionalidades.EditarEmpresa;
+using Factoring.Web.Funcionalidades.EditarFactura;
 using Factoring.Web.Funcionalidades.ListarEmpresa;
 using Factoring.Web.Funcionalidades.ListarFactura;
 using Factoring.Web.Funcionalidades.RegistrarEmpresa;
@@ -191,5 +192,43 @@ namespace Factoring.Web.Controllers
 
 
         }
+
+        [HttpGet]
+        public PartialViewResult EditarFactura(int IdFactura)
+        {
+            using (var buscar = new VerFacturaHandler())
+            {
+                return PartialView("_EditarFacturaxEmpresa", buscar.ExecuteEdicion(IdFactura));
+            }
+        }
+
+        [HttpPost]
+        public ActionResult EditarFactura(EditarFacturaViewModel model)
+        {
+            if (!ModelState.IsValid) return View(model);
+
+            using (var editar = new EditarFacturaHandler())
+            {
+                try
+                {
+                    editar.Ejecutar(model);
+
+                    //return RedirectToAction("_ListaFacturasxEmpresa", new { filtroNuEmpresa = model.NuEmpresa });
+                    //return ListarDetalle(model.NuEmpresa);
+                    return RedirectToAction("Lista", new { filtroCoUser = "HL" });
+
+                }
+                catch (Exception ex)
+                {
+                    ModelState.AddModelError("", ex.Message);
+                    return View(model);
+                }
+
+            }
+
+
+        }
+
+
     }
 }

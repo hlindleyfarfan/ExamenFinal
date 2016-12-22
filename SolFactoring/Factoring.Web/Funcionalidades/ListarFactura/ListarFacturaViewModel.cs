@@ -8,7 +8,7 @@ namespace Factoring.Web.Funcionalidades.ListarFactura
 {
     public class ListarFacturaViewModel
     {
-        //public int IdFactura { get; set; }
+        public int IdFactura { get; set; }
 
         [Display(Name = "Número")]
         public string NuFactura { get; set; }

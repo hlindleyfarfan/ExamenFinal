@@ -1,5 +1,6 @@
 ﻿using Factoring.Repositorio;
 using Factoring.Repositorio.Impl;
+using Factoring.Web.Funcionalidades.EditarFactura;
 using Factoring.Web.Funcionalidades.RegistrarFactura;
 using System;
 using System.Collections.Generic;
@@ -37,6 +38,27 @@ namespace Factoring.Web.Funcionalidades.ListarFactura
                 FeModif = DateTime.Today
             };
             
+        }
+
+        public EditarFacturaViewModel ExecuteEdicion(int IdFactura)
+        {
+            var factura = repositorio.Facturas.TraerUno(x => x.IdFactura == IdFactura);
+            return new EditarFacturaViewModel()
+            {
+
+                IdFactura = factura.IdFactura,
+                NuFactura = factura.NuFactura,
+                FeEmision = factura.FeEmision,
+                FeVencimiento = factura.FeVencimiento,
+                FeCobro = factura.FeCobro,
+                NuEmpresa = factura.NuEmpresa,
+                NuRuc = factura.NuRuc,
+                TxRazonSocial = factura.TxRazonSocial,
+                SsTotFactura = factura.SsTotFactura,
+                SsTotImpuestos = factura.SsTotImpuestos,
+                CoUserModif = factura.CoUserModif,
+                FeModif = factura.FeModif
+            };
         }
         public void Dispose()
         {
