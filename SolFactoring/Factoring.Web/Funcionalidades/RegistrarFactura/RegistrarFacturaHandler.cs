@@ -41,7 +41,7 @@ namespace Factoring.Web.Funcionalidades.RegistrarFactura
                 SsTotFactura = e.SsTotFactura,
                 SsTotImpuestos = e.SsTotImpuestos,
                 CoUserModif = e.CoUserModif,
-                FeModif = e.FeModif
+                FeModif = DateTime.Today
             };
         }
         public void Dispose()

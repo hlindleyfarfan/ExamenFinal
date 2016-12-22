@@ -36,7 +36,7 @@ namespace Factoring.Web.Funcionalidades.EditarEmpresa
                 TxRubro = modelo.TxRubro,
                 CoUser = modelo.CoUser,
                 CoUserModif = modelo.CoUserModif,
-                FeModif = modelo.FeModif
+                FeModif = DateTime.Today
             };
         }
         public void Dispose()

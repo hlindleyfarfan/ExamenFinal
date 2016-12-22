@@ -76,9 +76,23 @@ namespace Factoring.Web.Controllers
 
 
         [HttpGet]
-        public ActionResult Registrar()
+        public ActionResult Registrar(string CoUser)
         {
-            return View(new RegistrarEmpresaViewModel());
+            return View(new RegistrarEmpresaViewModel()
+            {
+                NuEmpresa = 0,
+                NuRuc = string.Empty,
+                TxRazonSocial = string.Empty,
+                TxDireccion = string.Empty,
+                NoDepartamento = string.Empty,
+                NoProvincia = string.Empty,
+                NoDistrito = string.Empty,
+                TxRubro = string.Empty,
+                CoUser = CoUser,
+                CoUserModif = CoUser,
+                FeModif = DateTime.Today.Date
+            });
+                
         }
 
         [HttpPost]
@@ -158,11 +172,11 @@ namespace Factoring.Web.Controllers
         }
 
         [HttpGet]
-        public PartialViewResult RegistrarFactura(int NuEmpresa)
+        public PartialViewResult RegistrarFactura(int NuEmpresa, string CoUser)
         {
             using (var buscar = new VerFacturaHandler())
             {
-                return PartialView("_RegistrarFacturaxEmpresa", buscar.Execute(NuEmpresa));
+                return PartialView("_RegistrarFacturaxEmpresa", buscar.Execute(NuEmpresa, CoUser));
             }
         }
 
@@ -170,7 +184,7 @@ namespace Factoring.Web.Controllers
         public ActionResult RegistrarFactura(RegistrarFacturaViewModel model)
         {
             if (!ModelState.IsValid) //return View(model);
-                return RegistrarFactura(model.NuEmpresa);
+                return RegistrarFactura(model.NuEmpresa, model.CoUserModif);
 
             using (var registrar = new RegistrarFacturaHandler())
             {

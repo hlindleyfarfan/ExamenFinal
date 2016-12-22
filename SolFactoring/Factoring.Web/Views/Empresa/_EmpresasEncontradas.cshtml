@@ -1,4 +1,6 @@
-﻿@model IEnumerable<Factoring.Web.Funcionalidades.ListarEmpresa.ListarEmpresaViewModel>
+﻿@using Microsoft.AspNet.Identity
+
+@model IEnumerable<Factoring.Web.Funcionalidades.ListarEmpresa.ListarEmpresaViewModel>
 
 <div class="container">
     <table class="table">
@@ -148,7 +150,7 @@
 
                             <li>
                                 @Ajax.ActionLink(" ", "RegistrarFactura", "Empresa"
-                   , new { NuEmpresa = item.NuEmpresa }
+                   , new { NuEmpresa = item.NuEmpresa, CoUser = User.MostrarNombre() }
                    , new AjaxOptions
                    {
                        HttpMethod = "Get",

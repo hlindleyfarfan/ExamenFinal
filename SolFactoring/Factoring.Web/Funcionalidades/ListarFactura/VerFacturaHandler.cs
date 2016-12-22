@@ -19,7 +19,7 @@ namespace Factoring.Web.Funcionalidades.ListarFactura
         }
 
 
-        public RegistrarFacturaViewModel Execute(int NuEmpresa)
+        public RegistrarFacturaViewModel Execute(int NuEmpresa, string CoUser)
         {
 
             return new RegistrarFacturaViewModel()
@@ -34,7 +34,7 @@ namespace Factoring.Web.Funcionalidades.ListarFactura
                 TxRazonSocial = String.Empty,
                 SsTotFactura = 0,
                 SsTotImpuestos = 0,
-                CoUserModif = String.Empty,
+                CoUserModif = CoUser,
                 FeModif = DateTime.Today
             };
             
@@ -57,7 +57,7 @@ namespace Factoring.Web.Funcionalidades.ListarFactura
                 SsTotFactura = factura.SsTotFactura,
                 SsTotImpuestos = factura.SsTotImpuestos,
                 CoUserModif = factura.CoUserModif,
-                FeModif = factura.FeModif
+                FeModif = DateTime.Today
             };
         }
         public void Dispose()

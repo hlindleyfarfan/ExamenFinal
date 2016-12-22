@@ -1,9 +1,10 @@
-﻿@model Factoring.Web.Funcionalidades.ListarEmpresa.FiltrarEmpresaViewModel
+﻿@using Microsoft.AspNet.Identity
+@model Factoring.Web.Funcionalidades.ListarEmpresa.FiltrarEmpresaViewModel
 
 <h2>Lista de Empresas</h2>
 
 <p>
-    @Html.ActionLink("Nueva Empresa", "Registrar")
+    @Html.ActionLink("Nueva Empresa", "Registrar", new { CoUser = User.MostrarNombre() })
 </p>
 @using (Ajax.BeginForm("VerEmpresas", "Empresa",
                                                     new AjaxOptions
