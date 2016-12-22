@@ -1,4 +1,5 @@
-﻿using FluentValidation;
+﻿using Factoring.Web.Funcionalidades.ListarFactura;
+using FluentValidation;
 using System;
 
 
@@ -13,14 +14,14 @@ namespace Factoring.Web.Funcionalidades.RegistrarFactura
                .NotEmpty()
                ;
             RuleFor(Modelo => Modelo.NuFactura)
-.NotEmpty();
+            .NotEmpty();
             RuleFor(Modelo => Modelo.NuEmpresa)
-    .NotEmpty();
+            .NotEmpty();
             RuleFor(Modelo => Modelo.TxRazonSocial)
-    .NotEmpty();
+            .NotEmpty();
             
             RuleFor(Modelo => Modelo.CoUserModif)
-    .NotEmpty();
+            .NotEmpty();
             RuleFor(Modelo => Modelo.FeVencimiento)
             .NotEmpty()
             .Must(ValidaFechaEmisionMenorIgualFechaVencim)
@@ -39,6 +40,10 @@ namespace Factoring.Web.Funcionalidades.RegistrarFactura
             RuleFor(Modelo => Modelo.NuRuc)
                 .Must(ValidaRUCIniciaen2)
                 .WithMessage("El RUC debe iniciar con el número 2.");
+
+            RuleFor(Modelo => Modelo.NuFactura)
+                .Must(ValidaNoDuplicados)
+                .WithMessage("Ya existe el Nro. de Factura ingresado.");
 
             RuleFor(Modelo => Modelo.SsTotFactura)
                 .Must(ValidaTotalMayorCero)
@@ -75,6 +80,12 @@ namespace Factoring.Web.Funcionalidades.RegistrarFactura
         private bool ValidaIgv(RegistrarFacturaViewModel modelo, Decimal vdecIgv)
         {
             return ((decimal)(modelo.SsTotFactura * 0.18m) == vdecIgv);
+        }
+
+        private bool ValidaNoDuplicados(RegistrarFacturaViewModel modelo, string vstrNuFactura)
+        {
+            ListarFacturaHandler obj = new ListarFacturaHandler();
+            return obj.NoExisteFacturaxEmpresa(vstrNuFactura, modelo.NuEmpresa);
         }
     }
 }

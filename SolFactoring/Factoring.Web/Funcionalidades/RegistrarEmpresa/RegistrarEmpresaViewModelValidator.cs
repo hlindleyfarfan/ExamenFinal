@@ -1,5 +1,7 @@
 ﻿
+using Factoring.Web.Funcionalidades.ListarEmpresa;
 using FluentValidation;
+using System.Collections.Generic;
 
 namespace Factoring.Web.Funcionalidades.RegistrarEmpresa
 {
@@ -31,6 +33,10 @@ namespace Factoring.Web.Funcionalidades.RegistrarEmpresa
                 .Must(ValidaRUCIniciaen2)
                 .WithMessage("El RUC debe iniciar con el número 2.");
 
+            RuleFor(Modelo => Modelo.NuRuc)
+                .Must(ValidaNoDuplicados)
+                .WithMessage("Ya existe el RUC ingresado.");
+
             RuleFor(Modelo => Modelo.TxRazonSocial)
                 .NotEmpty()
                 ;
@@ -39,6 +45,12 @@ namespace Factoring.Web.Funcionalidades.RegistrarEmpresa
         private bool ValidaRUCIniciaen2(RegistrarEmpresaViewModel modelo, string vstrNuRUC)
         {
             return (modelo.NuRuc.Substring(0,1)=="2");
+        }
+
+        private bool ValidaNoDuplicados(RegistrarEmpresaViewModel modelo, string vstrNuRUC)
+        {
+            ListarEmpresaHandler obj = new ListarEmpresaHandler();
+            return obj.NoExisteRUC(vstrNuRUC);
         }
     }
 }

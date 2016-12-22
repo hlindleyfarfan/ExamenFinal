@@ -49,5 +49,19 @@ namespace Factoring.Web.Funcionalidades.ListarEmpresa
                          }
                      ).ToList();
         }
+
+        public bool NoExisteRUC(string NuRuc)
+        {
+            var consulta = repositorio.Empresas.TrerTodos();
+
+
+            consulta = consulta
+                .Where(x =>
+                x.NuRuc.Equals(NuRuc)
+                );
+
+            return (consulta.Count()==0);
+            
+        }
     }
 }

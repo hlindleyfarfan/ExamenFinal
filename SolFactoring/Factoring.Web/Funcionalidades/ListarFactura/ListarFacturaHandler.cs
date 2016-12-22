@@ -50,5 +50,19 @@ namespace Factoring.Web.Funcionalidades.ListarFactura
                          }
                      ).ToList();
         }
+
+        public bool NoExisteFacturaxEmpresa(string NuFactura, int NuEmpresa)
+        {
+            var consulta = repositorio.Facturas.TrerTodos();
+
+
+            consulta = consulta
+                .Where(x =>
+                x.NuFactura.Equals(NuFactura) && x.NuEmpresa.Equals(NuEmpresa)
+                );
+
+            return (consulta.Count() == 0);
+
+        }
     }
 }
