@@ -41,9 +41,9 @@ namespace Factoring.Web.Funcionalidades.RegistrarFactura
                 .Must(ValidaRUCIniciaen2)
                 .WithMessage("El RUC debe iniciar con el número 2.");
 
-            //RuleFor(Modelo => Modelo.NuRuc)
-            //    .Must(ValidaModulo11)
-            //    .WithMessage("RUC invalidado por Módulo 11.");
+            RuleFor(Modelo => Modelo.NuRuc)
+                .Must(ValidaModulo11)
+                .WithMessage("RUC invalidado por Módulo 11.");
 
             RuleFor(Modelo => Modelo.NuFactura)
                 .Must(ValidaNoDuplicados)

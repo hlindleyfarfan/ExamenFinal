@@ -90,7 +90,7 @@ namespace Factoring.Web.Controllers
                 TxRubro = string.Empty,
                 CoUser = CoUser,
                 CoUserModif = CoUser,
-                FeModif = DateTime.Today
+                FeModif = DateTime.Now
             });
                 
         }

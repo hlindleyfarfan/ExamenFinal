@@ -35,7 +35,7 @@ namespace Factoring.Web.Funcionalidades.ListarFactura
                 SsTotFactura = 0,
                 SsTotImpuestos = 0,
                 CoUserModif = CoUser,
-                FeModif = DateTime.Today
+                FeModif = DateTime.Now
             };
             
         }
@@ -57,7 +57,7 @@ namespace Factoring.Web.Funcionalidades.ListarFactura
                 SsTotFactura = factura.SsTotFactura,
                 SsTotImpuestos = factura.SsTotImpuestos,
                 CoUserModif = factura.CoUserModif,
-                FeModif = DateTime.Today
+                FeModif = DateTime.Now
             };
         }
         public void Dispose()

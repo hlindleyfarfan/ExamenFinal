@@ -41,7 +41,7 @@ namespace Factoring.Web.Funcionalidades.RegistrarEmpresa
                 TxRubro = modelo.TxRubro,
                 CoUser = modelo.CoUser,
                 CoUserModif = modelo.CoUserModif,
-                FeModif = DateTime.Today
+                FeModif = DateTime.Now
             };
         }
         public void Dispose()

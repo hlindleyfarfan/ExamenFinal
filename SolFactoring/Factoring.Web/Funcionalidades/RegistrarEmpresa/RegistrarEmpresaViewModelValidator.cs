@@ -37,9 +37,9 @@ namespace Factoring.Web.Funcionalidades.RegistrarEmpresa
                 .Must(ValidaNoDuplicados)
                 .WithMessage("Ya existe el RUC ingresado.");
 
-            //RuleFor(Modelo => Modelo.NuRuc)
-            //    .Must(ValidaModulo11)
-            //    .WithMessage("RUC invalidado por Módulo 11.");
+            RuleFor(Modelo => Modelo.NuRuc)
+                .Must(ValidaModulo11)
+                .WithMessage("RUC invalidado por Módulo 11.");
 
             RuleFor(Modelo => Modelo.TxRazonSocial)
                 .NotEmpty()

@@ -37,7 +37,7 @@ namespace Factoring.Web.Funcionalidades.EditarFactura
                 SsTotFactura = modelo.SsTotFactura,
                 SsTotImpuestos = modelo.SsTotImpuestos,
                 CoUserModif = modelo.CoUserModif,
-                FeModif = DateTime.Today
+                FeModif = DateTime.Now
             };
         }
         public void Dispose()

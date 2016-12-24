@@ -30,13 +30,13 @@ namespace Factoring.Web.Funcionalidades.EditarEmpresa
                 NuRuc = modelo.NuRuc,
                 TxRazonSocial = modelo.TxRazonSocial,
                 TxDireccion = modelo.TxDireccion,
-                NoDepartamento = modelo.NoDepartamento,
+                NoDepartamento = modelo.NoDepartamento, 
                 NoProvincia = modelo.NoProvincia,
                 NoDistrito = modelo.NoDistrito,
                 TxRubro = modelo.TxRubro,
                 CoUser = modelo.CoUser,
                 CoUserModif = modelo.CoUserModif,
-                FeModif = DateTime.Today
+                FeModif = DateTime.Now
             };
         }
         public void Dispose()

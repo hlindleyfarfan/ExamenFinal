@@ -45,7 +45,7 @@ namespace Factoring.Web.Funcionalidades.ListarEmpresa
                              TxRubro=e.TxRubro,
                              CoUser=e.CoUser,
                              CoUserModif = e.CoUserModif,
-                             FeModif = DateTime.Today
+                             FeModif = DateTime.Now
                          }
                      ).ToList();
         }
