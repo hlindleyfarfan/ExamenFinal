@@ -4,7 +4,7 @@ namespace Factoring.Modelo
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
-    using System.Data.Entity.Spatial;
+    //using System.Data.Entity.Spatial;
 
     [Table("ImagenFactura")]
     public partial class ImagenFactura
@@ -21,6 +21,7 @@ namespace Factoring.Modelo
         [StringLength(50)]
         public string CoUserModif { get; set; }
 
+        [Column(TypeName = "smalldatetime")]
         public DateTime FeModif { get; set; }
 
         public virtual Factura Factura { get; set; }

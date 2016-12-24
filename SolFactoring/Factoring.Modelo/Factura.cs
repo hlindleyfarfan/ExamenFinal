@@ -13,26 +13,26 @@ namespace Factoring.Modelo
         public int IdFactura { get; set; }
 
         //[Required]
-        //[StringLength(10)]
+        [StringLength(10)]
         public string NuFactura { get; set; }
 
-        ////[Column(TypeName = "smalldatetime")]
+        [Column(TypeName = "smalldatetime")]
         public DateTime FeEmision { get; set; }
 
-        //[Column(TypeName = "smalldatetime")]
+        [Column(TypeName = "smalldatetime")]
         public DateTime FeVencimiento { get; set; }
 
-        //[Column(TypeName = "smalldatetime")]
+        [Column(TypeName = "smalldatetime")]
         public DateTime FeCobro { get; set; }
 
         public int NuEmpresa { get; set; }
 
         //[Required]
-        //[StringLength(11)]
+        [StringLength(11)]
         public string NuRuc { get; set; }
 
         //[Required]
-        //[StringLength(150)]
+        [StringLength(150)]
         public string TxRazonSocial { get; set; }
 
         //[Column(TypeName = "numeric")]
@@ -42,9 +42,10 @@ namespace Factoring.Modelo
         public decimal SsTotImpuestos { get; set; }
 
         //[Required]
-        //[StringLength(50)]
+        [StringLength(50)]
         public string CoUserModif { get; set; }
 
+        [Column(TypeName = "smalldatetime")]
         public DateTime FeModif { get; set; }
 
         public virtual Empresa Empresa { get; set; }
