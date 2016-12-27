@@ -1,5 +1,6 @@
 ﻿using Factoring.Repositorio;
 using Factoring.Repositorio.Impl;
+using Factoring.Web.Funcionalidades.EditarEmpresa;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,10 +18,10 @@ namespace Factoring.Web.Funcionalidades.ListarEmpresa
         }
 
 
-        public ListarEmpresaViewModel Execute(int NuEmpresa)
+        public EditarEmpresaViewModel Execute(int NuEmpresa)
         {
             var empresa = repositorio.Empresas.TraerUno(x => x.NuEmpresa == NuEmpresa);
-            return new ListarEmpresaViewModel()
+            return new EditarEmpresaViewModel()
             {
 
                 NuEmpresa = empresa.NuEmpresa,

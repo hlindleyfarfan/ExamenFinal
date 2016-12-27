@@ -41,11 +41,11 @@ namespace Factoring.Web.Controllers
         }
 
         [HttpGet]
-        public PartialViewResult Editar(int NuEmpresa)
+        public ActionResult Editar(int NuEmpresa)
         {
             using (var buscar = new VerEmpresaHandler())
             {
-                return PartialView("Editar", buscar.Execute(NuEmpresa));
+                return View("Editar", buscar.Execute(NuEmpresa));
             }
         }
 

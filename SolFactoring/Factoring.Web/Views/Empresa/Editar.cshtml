@@ -1,15 +1,15 @@
-﻿@model Factoring.Web.Funcionalidades.ListarEmpresa.ListarEmpresaViewModel
+﻿@model Factoring.Web.Funcionalidades.EditarEmpresa.EditarEmpresaViewModel
 
 <div id="EditarEmpresa">
 
     @using (Html.BeginForm("Editar", "Empresa", FormMethod.Post,
-                                                                        new
-                                                                        {
-                                                                            id = "EmpresaEditForm",
-                                                                            @class = "form-horizontal",
-                                                                            role = "form"
-                                                                        }
-                                                                        ))
+                                                                                new
+                                                                                {
+                                                                                    id = "EmpresaEditForm",
+                                                                                    @class = "form-horizontal",
+                                                                                    role = "form"
+                                                                                }
+                                                                                ))
     {
         @Html.AntiForgeryToken()
 
@@ -58,27 +58,33 @@
                         </div>
                     </div>
 
-                    <div class="form-group">
-                        @Html.LabelFor(model => model.NoDepartamento, htmlAttributes: new { @class = "control-label col-md-2" })
-                        <div class="col-md-10">
-                            @Html.EditorFor(model => model.NoDepartamento, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.NoDepartamento, "", new { @class = "text-danger" })
+                    <!-- Seccion de listas en cascada -->
+                    <div id="persona-ubigeo">
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.NoDepartamento, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-5">
+                                @Html.HiddenFor(model => model.NoDepartamento, new { @id = "departamento_nombre", @class = "departamento" })
+                                @Html.DropDownList("departamento", Model.Departamentos,
+                        new { @id = "persona_departamento", @class = "form-control departamento" })
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="form-group">
-                        @Html.LabelFor(model => model.NoProvincia, htmlAttributes: new { @class = "control-label col-md-2" })
-                        <div class="col-md-10">
-                            @Html.EditorFor(model => model.NoProvincia, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.NoProvincia, "", new { @class = "text-danger" })
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.NoProvincia, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-5">
+                                @Html.HiddenFor(model => model.NoProvincia, new { @id = "provincia_nombre", @class = "provincia" })
+                                @Html.DropDownList("provincia", Model.Provincias,
+                        new { @id = "persona_provincia", @class = "form-control provincia" })
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="form-group">
-                        @Html.LabelFor(model => model.NoDistrito, htmlAttributes: new { @class = "control-label col-md-2" })
-                        <div class="col-md-10">
-                            @Html.EditorFor(model => model.NoDistrito, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.NoDistrito, "", new { @class = "text-danger" })
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.NoDistrito, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-5">
+                                @Html.HiddenFor(model => model.NoDistrito, new { @id = "distrito_nombre", @class = "distrito" })
+                                @Html.DropDownList("distrito", Model.Distritos,
+                        new { @id = "persona_distrito", @class = "form-control distrito" })
+                            </div>
                         </div>
                     </div>
 
@@ -124,4 +130,12 @@
         </div>
 
     }
+
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+        @Scripts.Render("~/bundles/registrarpersona")
+    }
+
+
 </div>
+
