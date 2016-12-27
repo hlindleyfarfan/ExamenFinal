@@ -46,7 +46,7 @@ namespace Factoring.Web.Controllers
             using (var buscar = new VerEmpresaHandler())
             {
                 return View("Editar", buscar.Execute(NuEmpresa));
-            }
+            }//antes PartialViewResult  PartialView
         }
 
         [HttpPost]
