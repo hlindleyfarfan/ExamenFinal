@@ -78,6 +78,7 @@ namespace Factoring.Web.Controllers
         [HttpGet]
         public ActionResult Registrar(string CoUser)
         {
+            //return View(new RegistrarEmpresaViewModel());
             return View(new RegistrarEmpresaViewModel()
             {
                 NuEmpresa = 0,

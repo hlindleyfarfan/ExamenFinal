@@ -48,6 +48,8 @@ namespace Factoring.Web.Funcionalidades.RegistrarEmpresa
 
         private bool ValidaRUCIniciaen2(RegistrarEmpresaViewModel modelo, string vstrNuRUC)
         {
+            if (vstrNuRUC == null)
+                return false;
             return (modelo.NuRuc.Substring(0,1)=="2");
         }
 

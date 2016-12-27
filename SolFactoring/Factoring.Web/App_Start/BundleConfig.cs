@@ -26,6 +26,16 @@ namespace Factoring.Web
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/site.css"));
+
+            bundles.Add(new ScriptBundle("~/bundles/unobtrusiveajax")
+               .Include("~/Scripts/jquery.unobtrusive-ajax*")
+               );
+
+            bundles.Add(new ScriptBundle("~/bundles/registrarpersona")
+               .Include("~/Scripts/jquery.cascadingdropdown.js")
+               .Include("~/Scripts/app/registrapersona.js")
+
+               );
         }
     }
 }

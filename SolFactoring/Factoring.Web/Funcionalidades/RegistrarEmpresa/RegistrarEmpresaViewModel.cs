@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
-using System.Web;
+using System.Web.Mvc;
 
 namespace Factoring.Web.Funcionalidades.RegistrarEmpresa
 {
@@ -42,5 +42,21 @@ namespace Factoring.Web.Funcionalidades.RegistrarEmpresa
 
         [Display(Name = "Fec. Modif.")]
         public DateTime FeModif { get; set; }
+
+        //public string Departamento { get; set; }
+        //public string Provincia { get; set; }
+        //public string Distrito { get; set; }
+
+        public SelectList Departamentos { get; set; }
+        public SelectList Provincias { get; set; }
+        public SelectList Distritos { get; set; }
+
+        public RegistrarEmpresaViewModel()
+        {
+            var listaVacia = new List<string>() { "Seleccione..." };
+            Departamentos = new SelectList(listaVacia);
+            Provincias = new SelectList(listaVacia);
+            Distritos = new SelectList(listaVacia);
+        }
     }
 }
